@@ -1,18 +1,16 @@
-
 import path = require('path');
 import AutoLoad from 'fastify-autoload';
 import fastify, { FastifyInstance } from 'fastify';
-import * as env from "./env";
+import log from './utils/log';
+import { loadConfig } from './config';
 
-export default async function (opts = {}): Promise<FastifyInstance> {
-
+export async function initServer(opts = {}): Promise<FastifyInstance> {
   const server = fastify({
-    logger: {
-      level: 'info'
-    }
+    logger: log,
+    maxParamLength: 108,
   });
 
-  env.config();
+  loadConfig();
 
   // This loads all plugins defined in plugins
   // those should be support plugins that are reused

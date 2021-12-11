@@ -1,17 +1,20 @@
 import { FastifyInstance } from 'fastify';
-import { alive, ready } from '../apis/health';
-import { HealthSchema, validatorCompiler } from '../apis/schemas';
+import { alive, ready } from '../controllers/health.controller';
+import { HealthSchema } from '../controllers/health.controller/schemas';
+import { logMiddleware } from '../middlewares/log.middleware';
+import { validateSchema } from '../validations/schemas';
 
 export default async function (fastify: FastifyInstance) {
+  fastify.addHook('preHandler', logMiddleware);
   fastify
     .get(
       '/health/alive',
-      { schema: HealthSchema, validatorCompiler },
+      validateSchema(HealthSchema),
       alive
     )
     .get(
       '/health/ready',
-      { schema: HealthSchema, validatorCompiler },
+      validateSchema(HealthSchema),
       ready
     );
 }

@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  wallet-infra:
+    container_name: wallet-infra
+    build: .
+    ports:
+      - 8080:8080

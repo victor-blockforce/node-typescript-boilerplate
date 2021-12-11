@@ -5,7 +5,7 @@ npm-debug.log*
 
 # Env
 .env
-.env.*
+.env.production
 
 # Dependencies
 node_modules/

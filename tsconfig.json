@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "experimentalDecorators": true,
+    "target": "es2017",
     "module": "commonjs",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "importHelpers": true,
-    "jsx": "react",
     "alwaysStrict": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
@@ -19,13 +19,10 @@
     "noImplicitThis": false,
     "strictNullChecks": false,
     "skipLibCheck": true,
-    "rootDir": ".",
-    "outDir": "build",
-    "removeComments": true
+    "outDir": "build"
   },
   "include": [
-    "src/**/*",
-    "__tests__/**/*"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"

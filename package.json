@@ -1,35 +1,35 @@
 {
   "name": "node-typescript-boilerplate",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
   "engines": {
-    "node": ">= 14.16 <15"
+    "node": "^16.x.x"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^14.14.44",
-    "@typescript-eslint/eslint-plugin": "^4.23.0",
-    "@typescript-eslint/parser": "^4.23.0",
-    "eslint": "^7.26.0",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.12",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jest": "^24.3.6",
-    "jest": "^26.6.3",
-    "nodemon": "^2.0.7",
-    "prettier": "^2.3.0",
+    "eslint-plugin-jest": "^25.3.0",
+    "jest": "^27.4.4",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "tap": "^15.0.9",
-    "ts-jest": "^26.5.6",
-    "ts-node": "^10.0.0",
+    "tap": "^15.1.5",
+    "ts-jest": "^27.1.1",
+    "ts-node": "^10.4.0",
     "tsutils": "^3.21.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.5.3"
   },
   "scripts": {
     "clean": "rimraf coverage build tmp",
     "build": "tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.release.json",
-    "lint": "eslint . --ext .ts,.tsx",
-    "test": "jest --coverage",
+    "lint": "eslint src --fix --ext .ts,.tsx",
+    "test": "ENV=.env.test jest --detectOpenHandles --config ./__tests__/jest-e2e.json",
     "test:watch": "jest --watch",
     "start": "node build/src/index.js",
     "dev": "nodemon --exec ts-node src/index.ts"
@@ -37,18 +37,21 @@
   "author": "Jakub Synowiec <github@jakubsynowiec.info>",
   "license": "Apache-2.0",
   "dependencies": {
-    "dotenv": "^9.0.2",
+    "axios": "^0.24.0",
+    "better-sqlite3": "^7.4.5",
+    "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0",
-    "fastify": "^3.0.0",
-    "fastify-autoload": "^3.3.1",
-    "fastify-cli": "^2.12.0",
+    "fastify": "^3.24.1",
+    "fastify-autoload": "^3.9.0",
+    "fastify-cli": "^2.14.0",
     "fastify-plugin": "^3.0.0",
-    "fastify-sensible": "^3.1.0",
-    "pino": "^6.11.3",
-    "tslib": "^2.2.0",
-    "yup": "^0.32.9"
+    "fastify-sensible": "^3.1.2",
+    "pino": "^7.5.1",
+    "tslib": "^2.3.1",
+    "typeorm": "^0.2.41",
+    "yup": "^0.32.11"
   },
   "volta": {
-    "node": "14.16.1"
+    "node": "16.11.1"
   }
 }
