@@ -1,5 +1,5 @@
 import path = require('path');
-import AutoLoad from 'fastify-autoload';
+import AutoLoad from '@fastify/autoload';
 import fastify, { FastifyInstance } from 'fastify';
 import log from './utils/log';
 import { loadConfig } from './config';

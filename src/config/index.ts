@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import dotenvExpand from 'dotenv-expand';
 
-export const config = {
+export const globalConfig = {
   port: 8000,
   database: {
     type: '',
@@ -19,8 +19,8 @@ export function loadConfig() {
   //   throw new Error('Env var DB_URL not set');
   // }
 
-  config.port = parseInt(process.env.PORT, 10) || 8000;
-  config.database = {
+  globalConfig.port = process.env.PORT ? parseInt(process.env.PORT) : 8080;
+  globalConfig.database = {
     type: process.env.DB_TYPE || (process.env.DB_URL || '').split(':')[0],
     url: process.env.DB_URL,
     database: process.env.DB,
